@@ -55,12 +55,14 @@ if (age <= 18) {
 
 
   // МаСИВИ  масиви у JavaScript називаються arrays (однина — array, множина — arrays).
+  // Масиви: що це і як з ними працювати
+//==== Масив — це впорядкований список значень в одній змінній.
 
       let names = ["Anna", "Oleh", "Maria", "Dmytro"]; // Массив/рядок
 
-         const numbers = [1, 2, 3, 4, 5]; // масив чисел
+       const numbers = [1, 2, 3, 4, 5]; // масив чисел
 
-         const mixed = ['apple', 10, true]; // масив з елементами різних типів
+       const mixed = ['apple', 10, true]; // масив з елементами різних типів
 
 // Доступ до елементів
 
@@ -308,3 +310,70 @@ console.log(getEvenNumbers(3, 7));  // [4, 6]
 console.log(getEvenNumbers(11, 15)); // []
 
 
+/// == Метод includes() === ////
+
+
+
+
+
+
+
+// ==================== ОБ'ЄКТИ В JAVASCRIPT ====================
+
+
+// Створення об'єкта:
+const apartment = {
+  imgUrl: "https://via.placeholder.com/640x480", // властивість: значення
+  descr: "Spacious apartment in the city center", 
+  rating: 4, 
+  price: 2153, 
+  tags: ["premium", "promoted", "top"], // властивість з масивом
+};
+
+
+
+// -------------------- ДОСТУП ДО ВЛАСТИВОСТЕЙ --------------------
+
+// 1. Через крапкову нотацію (найпоширеніше)
+const aptRating = apartment.rating; // дістане число 4
+const aptDescr = apartment.descr;   // дістане рядок "Spacious apartment..."
+const aptPrice = apartment.price;   // дістане число 2153
+const aptTags = apartment.tags;     // дістане масив ["premium", "promoted", "top"]
+
+console.log(aptRating); // 4
+console.log(aptDescr);  // Spacious apartment in the city center
+console.log(aptPrice);  // 2153
+console.log(aptTags);   // ["premium", "promoted", "top"]
+
+// 2. Через квадратні дужки (якщо ключ у змінній або має спецсимволи)
+const key = "price";
+console.log(apartment[key]); // 2153
+// або так:
+console.log(apartment["rating"]); // 4
+
+// -------------------- ЗМІНА ЗНАЧЕНЬ --------------------
+apartment.price = 2500; // змінили ціну
+apartment.descr = "New modern apartment"; // змінили опис
+
+// -------------------- ДОДАВАННЯ НОВОЇ ВЛАСТИВОСТІ --------------------
+apartment.owner = "Anna"; 
+console.log(apartment.owner); // Anna
+
+// -------------------- ВИДАЛЕННЯ ВЛАСТИВОСТІ --------------------
+delete apartment.imgUrl;
+
+// -------------------- ПЕРЕБІР ВЛАСТИВОСТЕЙ --------------------
+
+// Цикл for...in (старіший спосіб)
+for (const key in apartment) {
+  console.log(key, apartment[key]);
+}
+
+// Object.keys() → масив усіх ключів
+console.log(Object.keys(apartment)); 
+
+// Object.values() → масив усіх значень
+console.log(Object.values(apartment)); 
+
+// Object.entries() → масив пар [ключ, значення]
+console.log(Object.entries(apartment)); 
